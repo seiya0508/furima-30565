@@ -33,17 +33,17 @@
 
 ## items テーブル
 
-| Colum              | type       | Options           |
-| -------------------| ---------- | ------------------|
-| name               | string     | null: false       |
-| description        | text       | null: false       |
-| price              | integer    | null: false       |
-| category_id        | string     | null: false       |
-| condition_id       | string     | null: false       |
-| delivery_charge_id | string     | null: false       |
-| delivery_area_id   | string     | null: false       |
-| shipping_days_id   | string     | null: false       |
-| user               | references | foreign_key: true |
+| Colum              | type        | Options           |
+| -------------------| ----------- | ------------------|
+| name               | string      | null: false       |
+| description        | text        | null: false       |
+| price              | integer     | null: false       |
+| category_id        | integer     | null: false       |
+| condition_id       | integer     | null: false       |
+| delivery_charge_id | integer     | null: false       |
+| delivery_area_id   | integer     | null: false       |
+| shipping_days_id   | integer     | null: false       |
+
 
 ### Association
 
@@ -52,15 +52,15 @@
 
 ## destinations テーブル
 
-| Column           | Type       | Options---------- |
+| Column           | Type       | Options           |
 | ---------------- | ---------- | ----------------- |
 | postal_code      | string     | null: false       |
-| prefectures      | string     | null: false       |
+| prefecture_id    | integer    | null: false       |
 | municipality     | string     | null: false       |
 | addresses        | string     | null: false       |
-| building         | string     | null: false       |
+| building         | string     |                   |
 | tel              | string     | null: false       |
-| buyer            | references | foreign_key: true |
+
 
 ### Association
 - belongs_to :buyer
