@@ -29,16 +29,21 @@
 
 - belongs_to :item
 - belongs_to :user
-- has_one :user
+- has_one :buyer
 
 ## items テーブル
 
 | Colum       | type       | Options     |
-| ----------  | ---------- | ----------- |
-| items_name  | text       | null: false |
-| description | text       | null: false |
-| price       | integer    | null: false |
-| user_id     | references |             |
+| ----------      | ---------- | ----------- |
+| items_name      | text       | null: false |
+| description     | text       | null: false |
+| price           | integer    | null: false |
+| category        | string     | null: false |
+| condition       | string     | null: false |
+| delivery_charge | string     | null: false |
+| delivery_area   | string     | null: false |
+| shipping_days   | string     | null: false |
+| user            | references |             |
 
 ### Association
 
@@ -53,6 +58,6 @@
 | addresses        | string     | null: false |
 | building         | string     | null: false |
 | tel              | string     | null: false |
-| buyer_id         | references | null: false |
+| buyer            | references | null: false |
 
 belongs_to :buyer
