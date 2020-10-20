@@ -1,24 +1,48 @@
-# README
+# furima-30565のER図
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Colum      | type    | Options     |
+| ---------- | ------  | ----------- |
+| nickname   | text    | null: false |
+| fullname   | text    | null: false |
+| birthday   | integer | null: false |
+| email      | string  | null: false |
+| password   | string  | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :items
+- has_many :buyers
 
-* Configuration
+## buyer テーブル
 
-* Database creation
+| Column           | Type       | Options     |
+| ---------------- | ---------- | ----------- |
+| card_number      | integer     | null: false |
+| card_expiration  | integer     | null: false |
+| security_code    | integer     | null: false |
+| shipping_address | text        | null: false |
+| tel              | integer     | null: false |
+| user_id          | references  |             |
+| items_id         | references  |             |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :item
+- belongs_to :user
 
-* Services (job queues, cache servers, search engines, etc.)
+## items テーブル
 
-* Deployment instructions
+| Colum       | type       | Options     |
+| ----------  | ---------- | ----------- |
+| items_name  | text       | null: false |
+| description | text       | null: false |
+| price       | string     | null: false |
+| image       |            |             |
+| user_id     | references |             |
 
-* ...
+### Association
+
+- belongs_to :user
+- has_one :buyer
