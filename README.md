@@ -17,20 +17,16 @@
 
 ## buyer テーブル
 
-| Column           | Type       | Options     |
-| ---------------- | ---------- | ----------- |
-| card_number      | integer     | null: false |
-| card_expiration  | integer     | null: false |
-| security_code    | integer     | null: false |
-| shipping_address | text        | null: false |
-| tel              | integer     | null: false |
-| user_id          | references  |             |
-| items_id         | references  |             |
+| Column           | Type       | Options      |
+| ---------------- | ---------- | -----------  |
+| user_id          | references |             |
+| items_id         | references |             |
 
 ### Association
 
 - belongs_to :item
 - belongs_to :user
+- has_one :user
 
 ## items テーブル
 
@@ -38,11 +34,22 @@
 | ----------  | ---------- | ----------- |
 | items_name  | text       | null: false |
 | description | text       | null: false |
-| price       | string     | null: false |
-| image       |            |             |
+| price       | integer    | null: false |
 | user_id     | references |             |
 
 ### Association
 
 - belongs_to :user
-- has_one :buyer
+- has_many :buyers
+
+## destinations テーブル
+
+| Column           | Type       | Options     |
+| ---------------- | ---------- | ----------- |
+| municipality     | string     | null: false |
+| addresses        | string     | null: false |
+| building         | string     | null: false |
+| tel              | integer    | null: false |
+| buyer_id         | integer    | null: false |
+
+belongs_to :buyer
