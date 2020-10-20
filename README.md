@@ -43,7 +43,7 @@
 | delivery_charge_id | integer     | null: false       |
 | delivery_area_id   | integer     | null: false       |
 | shipping_days_id   | integer     | null: false       |
-
+| user               | references  | foreign_key: true |
 
 ### Association
 
@@ -60,7 +60,7 @@
 | addresses        | string     | null: false       |
 | building         | string     |                   |
 | tel              | string     | null: false       |
-
+| buyer            | references | foreign_key: true |
 
 ### Association
 - belongs_to :buyer
