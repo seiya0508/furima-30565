@@ -2,13 +2,16 @@
 
 ## users テーブル
 
-| Colum      | type    | Options     |
-| ---------- | ------  | ----------- |
-| nickname   | text    | null: false |
-| fullname   | text    | null: false |
-| birthday   | integer | null: false |
-| email      | string  | null: false |
-| password   | string  | null: false |
+| Colum           | type    | Options       |
+| --------------  | ------  | -----------   |
+| nickname        | string    | null: false |
+| first_name      | string    | null: false |
+| last_name       | string    | null: false |
+| first_name_kana | string    | null: false |
+| last_name_kana  | string    | null: false |
+| birthday        | date      | null: false |
+| email           | string    | null: false |
+| password        | string    | null: false |
 
 ### Association
 
@@ -49,7 +52,7 @@
 | municipality     | string     | null: false |
 | addresses        | string     | null: false |
 | building         | string     | null: false |
-| tel              | integer    | null: false |
-| buyer_id         | integer    | null: false |
+| tel              | string     | null: false |
+| buyer_id         | references | null: false |
 
 belongs_to :buyer
