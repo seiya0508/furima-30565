@@ -2,8 +2,8 @@
 
 ## users テーブル
 
-| Colum           | type    | Options       |
-| --------------  | ------  | -----------   |
+| Colum           | type      | Options     |
+| --------------  | ------    | ----------- |
 | nickname        | string    | null: false |
 | first_name      | string    | null: false |
 | last_name       | string    | null: false |
@@ -20,44 +20,47 @@
 
 ## buyer テーブル
 
-| Column           | Type       | Options      |
-| ---------------- | ---------- | -----------  |
-| user_id          | references |             |
-| items_id         | references |             |
+| Column           | Type       | Options                      |
+| ---------------- | ---------- | -----------------------------|
+| user             | references | foreign_key: true            |
+| items            | references | foreign_key: true            |
 
 ### Association
 
 - belongs_to :item
 - belongs_to :user
-- has_one :buyer
+- has_one :destination
 
 ## items テーブル
 
-| Colum       | type       | Options     |
-| ----------      | ---------- | ----------- |
-| items_name      | text       | null: false |
-| description     | text       | null: false |
-| price           | integer    | null: false |
-| category        | string     | null: false |
-| condition       | string     | null: false |
-| delivery_charge | string     | null: false |
-| delivery_area   | string     | null: false |
-| shipping_days   | string     | null: false |
-| user            | references |             |
+| Colum              | type       | Options           |
+| -------------------| ---------- | ------------------|
+| name               | string     | null: false       |
+| description        | text       | null: false       |
+| price              | integer    | null: false       |
+| category_id        | string     | null: false       |
+| condition_id       | string     | null: false       |
+| delivery_charge_id | string     | null: false       |
+| delivery_area_id   | string     | null: false       |
+| shipping_days_id   | string     | null: false       |
+| user               | references | foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_many :buyers
+- has_one :buyer
 
 ## destinations テーブル
 
-| Column           | Type       | Options     |
-| ---------------- | ---------- | ----------- |
-| municipality     | string     | null: false |
-| addresses        | string     | null: false |
-| building         | string     | null: false |
-| tel              | string     | null: false |
-| buyer            | references | null: false |
+| Column           | Type       | Options---------- |
+| ---------------- | ---------- | ----------------- |
+| postal_code      | string     | null: false       |
+| prefectures      | string     | null: false       |
+| municipality     | string     | null: false       |
+| addresses        | string     | null: false       |
+| building         | string     | null: false       |
+| tel              | string     | null: false       |
+| buyer            | references | foreign_key: true |
 
-belongs_to :buyer
+### Association
+- belongs_to :buyer
