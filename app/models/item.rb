@@ -6,6 +6,9 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :shipping_day
   belongs_to_active_hash :delivery_area
+  belongs_to_active_hash :delivery_charge
+  belongs_to_active_hash :condition
+  belongs_to_active_hash :category
 
   with_options presence: true do
 
@@ -13,11 +16,11 @@ class Item < ApplicationRecord
   validates :description
   validates :price
   validates :image
-  validates :shipping_days_id, numericality: { other_than: 1 } 
-  validates :delivery_area_id, numericality: { other_than: 1 } 
-  validates :delivery_charge_id, numericality: { other_than: 1 } 
-  validates :condition_id, numericality: { other_than: 1 } 
-  validates :category_id, numericality: { other_than: 1 } 
+  validates :shipping_days_id
+  validates :delivery_area_id
+  validates :delivery_charge_id
+  validates :condition_id
+  validates :category_id
 
 
 end
