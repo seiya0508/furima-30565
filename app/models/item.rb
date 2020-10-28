@@ -14,7 +14,7 @@ class Item < ApplicationRecord
     validates :description
     validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than: 10_000_000 }
     validates :image
-    validates :shipping_days_id
+    validates :shipping_day_id
     validates :delivery_area_id
     validates :delivery_charge_id
     validates :condition_id
