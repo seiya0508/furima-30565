@@ -42,7 +42,7 @@
 | condition_id       | integer     | null: false       |
 | delivery_charge_id | integer     | null: false       |
 | delivery_area_id   | integer     | null: false       |
-| shipping_days_id   | integer     | null: false       |
+| shipping_day_id   | integer     | null: false       |
 | user               | references  | foreign_key: true |
 
 ### Association

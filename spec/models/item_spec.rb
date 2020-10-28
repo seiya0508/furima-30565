@@ -7,7 +7,7 @@ RSpec.describe Item, type: :model do
 
   describe '商品出品登録' do
     context '商品出品登録がうまくいくとき' do
-      it 'name, description, price, category_id, condition_id, delivery_charge_id, delivery_area_id, shipping_days_id, image、が存在すれば登録できる' do
+      it 'name, description, price, category_id, condition_id, delivery_charge_id, delivery_area_id, shipping_day_id, image、が存在すれば登録できる' do
         expect(@item).to be_valid
       end
     end
@@ -51,7 +51,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Delivery area can't be blank")
       end
       it '発送までの日数についての情報が空だと登録できない' do
-        @item.shipping_days_id = ''
+        @item.shipping_day_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping days can't be blank")
       end
