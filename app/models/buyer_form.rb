@@ -1,7 +1,7 @@
 class BuyerForm
 
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :municipality, :address, :building, :tel, :buyer
+  attr_accessor :postal_code, :prefecture_id, :municipality, :address, :building, :tel, :item_id, :user_id
   
   with_options presence: true do
     validates :postal_code
@@ -16,9 +16,8 @@ class BuyerForm
     
   
   def save
-    
-    Buyers.create(user_id: user.id, item_id: item.id)
-    Destinations.create(postal_code: postal_code, municipality: municipality, address: address, building: building, tel: tel, prefecture_id: prefecture_id)
+    buyer = Buyer.create(user_id: user_id, item_id: item_id)
+    Destination.create(postal_code: postal_code, municipality: municipality, address: address, building: building, tel: tel, prefecture_id: prefecture_id, buyer_id: buyer.id)
   end
 end
   
