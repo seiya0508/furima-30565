@@ -1,7 +1,7 @@
 class BuyerForm
 
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :municipality, :address, :building, :tel, :item_id, :user_id
+  attr_accessor :postal_code, :prefecture_id, :municipality, :address, :building, :tel, :item_id, :user_id, :token, :price
   
   with_options presence: true do
     validates :postal_code
@@ -9,6 +9,7 @@ class BuyerForm
     validates :municipality
     validates :address
     validates :tel
+    
     
   end
     
