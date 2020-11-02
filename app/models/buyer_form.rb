@@ -4,11 +4,12 @@ class BuyerForm
   attr_accessor :postal_code, :prefecture_id, :municipality, :address, :building, :tel, :item_id, :user_id, :token, :price
   
   with_options presence: true do
-    validates :postal_code
+    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/ }
     validates :prefecture_id
     validates :municipality
     validates :address
-    validates :tel
+    validates :tel, format: { with: /\A\d{10,11}\z/ }
+    validates :token
     
     
   end
