@@ -18,12 +18,12 @@
 - has_many :items
 - has_many :buyers
 
-## buyer テーブル
+## buyers テーブル
 
 | Column           | Type       | Options                      |
 | ---------------- | ---------- | -----------------------------|
 | user             | references | foreign_key: true            |
-| items            | references | foreign_key: true            |
+| item             | references | foreign_key: true            |
 
 ### Association
 
@@ -42,7 +42,7 @@
 | condition_id       | integer     | null: false       |
 | delivery_charge_id | integer     | null: false       |
 | delivery_area_id   | integer     | null: false       |
-| shipping_day_id   | integer     | null: false       |
+| shipping_day_id    | integer     | null: false       |
 | user               | references  | foreign_key: true |
 
 ### Association
@@ -57,7 +57,7 @@
 | postal_code      | string     | null: false       |
 | prefecture_id    | integer    | null: false       |
 | municipality     | string     | null: false       |
-| addresses        | string     | null: false       |
+| address          | string     | null: false       |
 | building         | string     |                   |
 | tel              | string     | null: false       |
 | buyer            | references | foreign_key: true |
