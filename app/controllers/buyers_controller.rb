@@ -1,10 +1,13 @@
 class BuyersController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :create]
-  before_action :move_to_index, only: [:index, :create]
+  before_action :authenticate_user!
+  
 
   def index
     @item = Item.find(params[:item_id])
     @buyer_form = BuyerForm.new
+    if @item.user_id == current_user.id || @item.buyer.present?
+      redirect_to root_path
+    end
   end
 
   def create
@@ -33,11 +36,6 @@ class BuyersController < ApplicationController
       currency: 'jpy'                 # 通貨の種類（日本円）
     )
   end
-
-  def move_to_index
-    
-    @item = Item.includes(:user).find(params[:item_id])
-    redirect_to root_path if current_user.id == @item.user_id
-  end
-
 end
+
+
